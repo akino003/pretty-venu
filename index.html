@@ -4,379 +4,327 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For Venu — The Prettiest Girl Alive 🌸</title>
-  <meta name="description"
-    content="A heartfelt tribute to Venu — the most beautiful, radiant woman in the entire world. From Alein, with all my heart." />
+  <title>For Venu — You Are Everything ✨</title>
+  <meta name="description" content="Venu — the prettiest girl alive. A love letter from Alein." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <!-- Floating petals background -->
-  <div class="petals-container" id="petalsContainer"></div>
+  <!-- Aurora background -->
+  <div class="aurora-bg" id="auroraBg">
+    <div class="aurora aurora-1"></div>
+    <div class="aurora aurora-2"></div>
+    <div class="aurora aurora-3"></div>
+  </div>
 
-  <!-- Cursor glow -->
-  <div class="cursor-glow" id="cursorGlow"></div>
+  <!-- Particle canvas -->
+  <canvas id="particleCanvas"></canvas>
 
-  <!-- Stars background -->
-  <div class="stars-bg" id="starsBg"></div>
+  <!-- Custom cursor -->
+  <div class="cursor-outer" id="cursorOuter"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
 
-  <!-- ===== HERO SECTION ===== -->
-  <section class="hero" id="hero">
-    <div class="hero-bg-overlay"></div>
-    <div class="hero-orbs">
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-      <div class="orb orb-3"></div>
-    </div>
-    <div class="hero-content">
-      <p class="hero-eyebrow animate-fade-up" style="animation-delay:0.1s">✦ &nbsp; from Alein, with all my heart &nbsp; ✦</p>
-      <p class="hero-subtitle animate-fade-up" style="animation-delay:0.3s">for the one and only</p>
-      <h1 class="hero-name animate-fade-up" style="animation-delay:0.6s">Venu</h1>
-      <p class="hero-decree animate-fade-up" style="animation-delay:0.9s">
-        The Prettiest Girl<br /><em>in the Entire World</em>
-      </p>
-      <p class="hero-tagline animate-fade-up" style="animation-delay:1.2s">
-        And I'm not just saying that — I mean it with every single heartbeat.
-      </p>
-      <div class="scroll-hint animate-fade-up" style="animation-delay:1.6s">
-        <span>Scroll to feel it</span>
-        <div class="scroll-arrow"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Audio player -->
-  <div class="audio-player" id="audioPlayer">
-    <button class="audio-btn" id="audioToggle" title="Play/Pause music">
-      <svg id="audioIcon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="5,3 19,12 5,21" />
-      </svg>
+  <!-- Audio Player -->
+  <div class="audio-pill" id="audioPill">
+    <button class="audio-pill-btn" id="audioToggle" title="Play our song">
+      <span class="pill-play-icon" id="pillPlayIcon">▶</span>
     </button>
-    <div class="audio-info">
-      <span class="audio-label">Our Song 🎵</span>
-      <div class="audio-bars" id="audioBars">
-        <span></span><span></span><span></span><span></span><span></span>
-      </div>
+    <div class="pill-wave" id="pillWave">
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
     </div>
+    <span class="pill-label">Our Song 🎵</span>
     <audio id="bgAudio" loop>
       <source src="images/WhatsApp Audio 2026-06-04 at 11.01.43 PM.ogg" type="audio/ogg" />
     </audio>
   </div>
 
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-grid-lines"></div>
+    <div class="hero-content">
+      <div class="hero-tag">from Alein · with everything I have</div>
+      <div class="hero-name-wrap">
+        <h1 class="hero-name" id="heroName">
+          <span class="name-v">V</span><span class="name-rest">enu</span>
+        </h1>
+      </div>
+      <div class="hero-decree-wrap">
+        <p class="hero-decree">The Prettiest Girl</p>
+        <p class="hero-decree gold">Alive.</p>
+      </div>
+      <p class="hero-sub" id="typewriterText"></p>
+      <div class="hero-scroll">
+        <div class="scroll-line"></div>
+        <span>scroll</span>
+      </div>
+    </div>
+    <div class="hero-side-text">she changed everything ✦ she is everything ✦ she is the prettiest ✦</div>
+  </section>
+
+  <!-- ===== MARQUEE BANNER ===== -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <div class="marquee-inner" id="marqueeInner">
+        <span>VENU IS THE PRETTIEST GIRL ALIVE</span>
+        <span>✦</span>
+        <span>THE MOST BEAUTIFUL WOMAN IN THE WORLD</span>
+        <span>✦</span>
+        <span>VENU IS THE PRETTIEST GIRL ALIVE</span>
+        <span>✦</span>
+        <span>THE MOST BEAUTIFUL WOMAN IN THE WORLD</span>
+        <span>✦</span>
+        <span>VENU IS THE PRETTIEST GIRL ALIVE</span>
+        <span>✦</span>
+        <span>THE MOST BEAUTIFUL WOMAN IN THE WORLD</span>
+        <span>✦</span>
+      </div>
+    </div>
+  </div>
+
   <!-- ===== OPENING LETTER ===== -->
-  <section class="letter-section">
-    <div class="letter-card">
-      <div class="letter-decoration">✦</div>
-      <p class="letter-text">
-        There are moments in life that redefine everything — the air you breathe, the way you see the sky, the reason
-        your heart beats a little faster every single morning.
-        <em>You are that moment for me.</em>
+  <section class="letter-section" id="letter">
+    <div class="letter-envelope" id="letterEnvelope">
+      <div class="envelope-flap" id="envelopeFlap"></div>
+      <div class="envelope-body">
+        <div class="envelope-seal">💌</div>
+        <p class="envelope-hint">tap to open</p>
+      </div>
+    </div>
+    <div class="letter-content" id="letterContent">
+      <p class="letter-from">My dearest Venu,</p>
+      <p class="letter-para">
+        I know you sometimes look in the mirror and feel uncertain about how beautiful you are.
+        So I built you this — a place on the internet that will exist forever,
+        telling the world what I know to be absolutely, undeniably true:
       </p>
-      <p class="letter-text">
-        Venu, I know you sometimes doubt how beautiful you are. But I need you to know — from the deepest place in my soul —
-        that you are <em>the most stunning woman I have ever seen.</em> Not just to me. Objectively, truly, completely.
+      <p class="letter-highlight">
+        "You are the most beautiful woman who has ever lived."
       </p>
-      <p class="letter-text">
-        Every photo, every moment, every laugh — it's all proof of something I see so clearly:
-        <em>you are the prettiest girl alive.</em>
+      <p class="letter-para">
+        Not to me alone. <em>Objectively.</em> Completely. Without question.
+        Every single picture proves it. Every moment confirms it.
+        And I will spend every day of my life making sure you believe it too.
       </p>
-      <div class="letter-decoration">✦</div>
+      <p class="letter-sign">— Alein 💜</p>
     </div>
   </section>
 
-  <!-- ===== "SHE IS BEAUTIFUL" STATEMENT ===== -->
-  <section class="beauty-statement-section">
-    <div class="beauty-statement-inner">
-      <div class="beauty-crown">👑</div>
-      <h2 class="beauty-title">Venu is the Most Beautiful Woman in the World</h2>
-      <p class="beauty-subtitle">— and Alein wants the whole world to know it.</p>
-      <div class="beauty-facts">
-        <div class="beauty-fact">
-          <div class="fact-icon">🌟</div>
-          <p>Her smile lights up every room she walks into</p>
-        </div>
-        <div class="beauty-fact">
-          <div class="fact-icon">🌸</div>
-          <p>Her eyes hold entire galaxies of warmth</p>
-        </div>
-        <div class="beauty-fact">
-          <div class="fact-icon">✨</div>
-          <p>She radiates a glow that no camera can fully capture</p>
-        </div>
-        <div class="beauty-fact">
-          <div class="fact-icon">💫</div>
-          <p>She is beautiful inside and out — completely, perfectly</p>
-        </div>
-      </div>
+  <!-- ===== POLAROID GALLERY ===== -->
+  <section class="polaroid-section" id="gallery">
+    <div class="section-label">
+      <span class="label-tag">photographic evidence</span>
+    </div>
+    <h2 class="section-heading">Look How Stunning She Is</h2>
+    <p class="section-note">Every frame. Proof.</p>
+
+    <div class="polaroid-wall" id="polaroidWall">
+      <!-- Polaroids generated by JS -->
+    </div>
+
+    <div class="view-more-wrap">
+      <button class="btn-view-more" id="viewMoreBtn">See All Photos ↓</button>
     </div>
   </section>
 
-  <!-- ===== PHOTO GALLERY — HER ===== -->
-  <section class="gallery-section" id="gallery">
-    <div class="section-header">
-      <p class="section-sub">her and her beauty</p>
-      <h2 class="section-title">Proof She's The Prettiest 🌹</h2>
-      <p class="section-desc">Every single picture is a masterpiece. Just look at her.</p>
-    </div>
-
-    <div class="gallery-grid" id="galleryGrid">
-      <div class="gallery-item tall" onclick="openLightbox('images/WhatsApp Image 2026-06-04 at 10.54.32 PM.jpeg', 'She glows without even trying 🌸')">
-        <img src="images/WhatsApp Image 2026-06-04 at 10.54.32 PM.jpeg" alt="Venu — gorgeous as always" loading="lazy" />
-        <div class="gallery-overlay"><span class="overlay-emoji">🌸</span><span class="overlay-text">She glows ✨</span></div>
+  <!-- ===== BEAUTY STATEMENT ===== -->
+  <section class="statement-section">
+    <div class="statement-inner">
+      <p class="statement-eyebrow">a fact, not an opinion</p>
+      <h2 class="statement-big">
+        <span class="word-stroke">THE</span>
+        <span class="word-fill">PRETTIEST</span>
+        <br/>
+        <span class="word-stroke">GIRL</span>
+        <span class="word-fill">ALIVE</span>
+      </h2>
+      <div class="statement-divider"></div>
+      <div class="statement-pills">
+        <div class="s-pill">🌟 Her smile lights up every room</div>
+        <div class="s-pill">🌙 Her eyes hold entire galaxies</div>
+        <div class="s-pill">✨ She glows without even trying</div>
+        <div class="s-pill">💫 Beautiful inside and out</div>
+        <div class="s-pill">🦋 Effortlessly breathtaking</div>
+        <div class="s-pill">👑 A queen in every frame</div>
       </div>
-      <div class="gallery-item" onclick="openLightbox('images/WhatsApp Image 2026-06-04 at 11.04.52 PM.jpeg', 'Absolutely stunning 💕')">
-        <img src="images/WhatsApp Image 2026-06-04 at 11.04.52 PM.jpeg" alt="Venu" loading="lazy" />
-        <div class="gallery-overlay"><span class="overlay-emoji">✨</span><span class="overlay-text">Stunning 💕</span></div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox('images/WhatsApp Image 2026-06-04 at 11.04.53 PM.jpeg', 'Prettiest smile in the world 😍')">
-        <img src="images/WhatsApp Image 2026-06-04 at 11.04.53 PM.jpeg" alt="Venu" loading="lazy" />
-        <div class="gallery-overlay"><span class="overlay-emoji">💕</span><span class="overlay-text">Prettiest smile 😍</span></div>
-      </div>
-      <div class="gallery-item wide" onclick="openLightbox('images/WhatsApp Image 2026-06-04 at 11.04.53 PM (1).jpeg', 'A queen in every frame 👑')">
-        <img src="images/WhatsApp Image 2026-06-04 at 11.04.53 PM (1).jpeg" alt="Venu" loading="lazy" />
-        <div class="gallery-overlay"><span class="overlay-emoji">🌹</span><span class="overlay-text">A queen 👑</span></div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox('images/WhatsApp Image 2026-06-04 at 11.04.53 PM (2).jpeg', 'Effortlessly beautiful 🦋')">
-        <img src="images/WhatsApp Image 2026-06-04 at 11.04.53 PM (2).jpeg" alt="Venu" loading="lazy" />
-        <div class="gallery-overlay"><span class="overlay-emoji">🦋</span><span class="overlay-text">Effortless beauty</span></div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox('images/WhatsApp Image 2026-06-04 at 11.04.54 PM.jpeg', 'My favorite face in the world 💫')">
-        <img src="images/WhatsApp Image 2026-06-04 at 11.04.54 PM.jpeg" alt="Venu" loading="lazy" />
-        <div class="gallery-overlay"><span class="overlay-emoji">💫</span><span class="overlay-text">My favorite face</span></div>
-      </div>
-      <div class="gallery-item tall" onclick="openLightbox('images/WhatsApp Image 2026-06-04 at 11.04.54 PM (1).jpeg', 'She makes everything more beautiful 🌺')">
-        <img src="images/WhatsApp Image 2026-06-04 at 11.04.54 PM (1).jpeg" alt="Venu" loading="lazy" />
-        <div class="gallery-overlay"><span class="overlay-emoji">🌺</span><span class="overlay-text">Simply breathtaking</span></div>
-      </div>
-      <div class="gallery-item wide" onclick="openLightbox('images/WhatsApp Image 2026-06-04 at 11.04.54 PM (2).jpeg', 'Radiant beyond words 💗')">
-        <img src="images/WhatsApp Image 2026-06-04 at 11.04.54 PM (2).jpeg" alt="Venu" loading="lazy" />
-        <div class="gallery-overlay"><span class="overlay-emoji">💗</span><span class="overlay-text">Radiant beyond words</span></div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox('images/WhatsApp Image 2026-06-04 at 11.04.54 PM (3).jpeg', 'Like a dream 🌙')">
-        <img src="images/WhatsApp Image 2026-06-04 at 11.04.54 PM (3).jpeg" alt="Venu" loading="lazy" />
-        <div class="gallery-overlay"><span class="overlay-emoji">🌙</span><span class="overlay-text">Like a dream</span></div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox('images/WhatsApp Image 2026-06-04 at 11.04.55 PM.jpeg', 'The prettiest girl alive ⭐')">
-        <img src="images/WhatsApp Image 2026-06-04 at 11.04.55 PM.jpeg" alt="Venu" loading="lazy" />
-        <div class="gallery-overlay"><span class="overlay-emoji">⭐</span><span class="overlay-text">The prettiest girl ⭐</span></div>
-      </div>
-      <div class="gallery-item wide" onclick="openLightbox('images/WhatsApp Image 2026-06-04 at 11.04.55 PM (1).jpeg', 'I could look at her forever 🌷')">
-        <img src="images/WhatsApp Image 2026-06-04 at 11.04.55 PM (1).jpeg" alt="Venu" loading="lazy" />
-        <div class="gallery-overlay"><span class="overlay-emoji">🌷</span><span class="overlay-text">I could look forever</span></div>
-      </div>
-      <!-- New June 13 photos -->
-      <div class="gallery-item" onclick="openLightbox('images/WhatsApp Image 2026-06-13 at 4.16.30 PM.jpeg', 'Still the most beautiful today 💖')">
-        <img src="images/WhatsApp Image 2026-06-13 at 4.16.30 PM.jpeg" alt="Venu — beautiful today" loading="lazy" />
-        <div class="gallery-overlay"><span class="overlay-emoji">💖</span><span class="overlay-text">Beautiful today 💖</span></div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox('images/WhatsApp Image 2026-06-13 at 4.16.30 PM (1).jpeg', 'Getting prettier every single day 🥰')">
-        <img src="images/WhatsApp Image 2026-06-13 at 4.16.30 PM (1).jpeg" alt="Venu — getting prettier every day" loading="lazy" />
-        <div class="gallery-overlay"><span class="overlay-emoji">🥰</span><span class="overlay-text">Prettier every day</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== QUOTE SECTION ===== -->
-  <section class="quote-section">
-    <div class="quote-inner">
-      <div class="quote-mark">"</div>
-      <blockquote class="big-quote">
-        Venu, whenever you look in the mirror and feel insecure — I need you to see what I see:
-        the most breathtakingly beautiful woman who has ever existed.
-        Your beauty isn't just skin-deep. It radiates from your soul, your laugh,
-        your kindness, your everything.
-        <em>You are, without question, the prettiest girl alive.</em>
-      </blockquote>
-      <p class="quote-author">— Alein, not exaggerating at all 💗</p>
     </div>
   </section>
 
   <!-- ===== US SECTION ===== -->
   <section class="us-section" id="us">
-    <div class="section-header">
-      <p class="section-sub">alein &amp; venu</p>
-      <h2 class="section-title">Us — My Favorite Story 💑</h2>
-      <p class="section-desc">These are the moments I never want to forget.</p>
+    <div class="section-label">
+      <span class="label-tag">alein &amp; venu</span>
     </div>
-    <div class="us-grid">
-      <div class="us-item featured" onclick="openLightbox('us/WhatsApp Image 2026-06-13 at 4.19.48 PM.jpeg', 'My favorite humans in one photo 💕')">
-        <img src="us/WhatsApp Image 2026-06-13 at 4.19.48 PM.jpeg" alt="Alein and Venu together" loading="lazy" />
-        <div class="us-overlay">
-          <div class="us-overlay-content">
-            <span class="us-heart">💑</span>
-            <p class="us-caption-text">Us — the best thing that ever happened</p>
-          </div>
+    <h2 class="section-heading">Us — My Favorite Chapter 💑</h2>
+    <p class="section-note">The story I never want to end.</p>
+    <div class="us-film-strip" id="usFilmStrip">
+      <div class="film-holes left">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="film-frames">
+        <div class="film-frame" onclick="openLightbox('us/WhatsApp Image 2026-06-13 at 4.19.48 PM.jpeg', 'Us — my favorite thing in the world 💕')">
+          <img src="us/WhatsApp Image 2026-06-13 at 4.19.48 PM.jpeg" alt="Alein and Venu" loading="lazy" />
+          <p class="film-caption">together 💕</p>
+        </div>
+        <div class="film-frame" onclick="openLightbox('us/WhatsApp Image 2026-06-13 at 4.19.48 PM (1).jpeg', 'My favorite place is beside you 🌹')">
+          <img src="us/WhatsApp Image 2026-06-13 at 4.19.48 PM (1).jpeg" alt="Alein and Venu" loading="lazy" />
+          <p class="film-caption">always 🌹</p>
+        </div>
+        <div class="film-frame" onclick="openLightbox('us/WhatsApp Image 2026-06-13 at 4.19.48 PM (2).jpeg', 'Every moment is a treasure ✨')">
+          <img src="us/WhatsApp Image 2026-06-13 at 4.19.48 PM (2).jpeg" alt="Alein and Venu" loading="lazy" />
+          <p class="film-caption">forever ✨</p>
         </div>
       </div>
-      <div class="us-item" onclick="openLightbox('us/WhatsApp Image 2026-06-13 at 4.19.48 PM (1).jpeg', 'Together is my favorite place to be 🌹')">
-        <img src="us/WhatsApp Image 2026-06-13 at 4.19.48 PM (1).jpeg" alt="Alein and Venu" loading="lazy" />
-        <div class="us-overlay">
-          <div class="us-overlay-content">
-            <span class="us-heart">🌹</span>
-            <p class="us-caption-text">My favorite place — beside you</p>
-          </div>
-        </div>
-      </div>
-      <div class="us-item" onclick="openLightbox('us/WhatsApp Image 2026-06-13 at 4.19.48 PM (2).jpeg', 'Every moment with you is a treasure ✨')">
-        <img src="us/WhatsApp Image 2026-06-13 at 4.19.48 PM (2).jpeg" alt="Alein and Venu" loading="lazy" />
-        <div class="us-overlay">
-          <div class="us-overlay-content">
-            <span class="us-heart">✨</span>
-            <p class="us-caption-text">Every moment is a treasure</p>
-          </div>
-        </div>
+      <div class="film-holes right">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
     </div>
-    <!-- Love banner -->
-    <div class="love-banner">
-      <p class="love-banner-text">Alein &nbsp;❤️&nbsp; Venu &nbsp;·&nbsp; Forever &amp; Always</p>
+    <div class="us-love-text">
+      <span class="love-word">Alein</span>
+      <span class="love-heart" id="loveHeart">♥</span>
+      <span class="love-word">Venu</span>
     </div>
   </section>
 
   <!-- ===== VIDEO MEMORIES ===== -->
   <section class="video-section" id="videos">
-    <div class="section-header">
-      <p class="section-sub">moving memories</p>
-      <h2 class="section-title">The Moments I Replay 🎬</h2>
-      <p class="section-desc">Because sometimes a photo isn't enough to capture her magic.</p>
+    <div class="section-label">
+      <span class="label-tag">moving memories</span>
     </div>
-    <div class="video-grid">
-      <div class="video-card">
-        <video controls preload="metadata">
-          <source src="images/WhatsApp Video 2026-06-04 at 11.04.55 PM.mp4" type="video/mp4" />
-        </video>
-        <div class="video-caption">A moment I treasure 💛</div>
-      </div>
-      <div class="video-card">
-        <video controls preload="metadata">
-          <source src="images/WhatsApp Video 2026-06-04 at 11.04.55 PM (1).mp4" type="video/mp4" />
-        </video>
-        <div class="video-caption">You, being perfectly you 🌸</div>
-      </div>
-      <div class="video-card">
-        <video controls preload="metadata">
-          <source src="images/WhatsApp Video 2026-06-04 at 11.04.56 PM.mp4" type="video/mp4" />
-        </video>
-        <div class="video-caption">My favorite smile in the world ✨</div>
-      </div>
-      <div class="video-card">
-        <video controls preload="metadata">
-          <source src="images/WhatsApp Video 2026-06-04 at 11.04.56 PM (1).mp4" type="video/mp4" />
-        </video>
-        <div class="video-caption">Every moment with you is magic 🌙</div>
-      </div>
-      <div class="video-card">
-        <video controls preload="metadata">
-          <source src="images/WhatsApp Video 2026-06-04 at 11.04.57 PM.mp4" type="video/mp4" />
-        </video>
-        <div class="video-caption">This is my happy place 💕</div>
-      </div>
-      <div class="video-card">
-        <video controls preload="metadata">
-          <source src="images/WhatsApp Video 2026-06-04 at 11.04.57 PM (1).mp4" type="video/mp4" />
-        </video>
-        <div class="video-caption">Nothing compares to you 🦋</div>
-      </div>
-      <div class="video-card">
-        <video controls preload="metadata">
-          <source src="images/WhatsApp Video 2026-06-04 at 11.04.58 PM.mp4" type="video/mp4" />
-        </video>
-        <div class="video-caption">You make everything brighter 🌺</div>
-      </div>
-      <div class="video-card">
-        <video controls preload="metadata">
-          <source src="images/WhatsApp Video 2026-06-04 at 11.04.59 PM.mp4" type="video/mp4" />
-        </video>
-        <div class="video-caption">My forever memory 🌹</div>
+    <h2 class="section-heading">Moments I Replay Forever 🎬</h2>
+    <p class="section-note">Because she's even more magical in motion.</p>
+    <div class="video-scroll-container">
+      <div class="video-scroll" id="videoScroll">
+        <div class="vid-card">
+          <video controls preload="metadata"><source src="images/WhatsApp Video 2026-06-04 at 11.04.55 PM.mp4" type="video/mp4" /></video>
+          <p class="vid-label">A moment I treasure 💛</p>
+        </div>
+        <div class="vid-card">
+          <video controls preload="metadata"><source src="images/WhatsApp Video 2026-06-04 at 11.04.55 PM (1).mp4" type="video/mp4" /></video>
+          <p class="vid-label">You, being perfectly you 🌸</p>
+        </div>
+        <div class="vid-card">
+          <video controls preload="metadata"><source src="images/WhatsApp Video 2026-06-04 at 11.04.56 PM.mp4" type="video/mp4" /></video>
+          <p class="vid-label">That smile 😍✨</p>
+        </div>
+        <div class="vid-card">
+          <video controls preload="metadata"><source src="images/WhatsApp Video 2026-06-04 at 11.04.56 PM (1).mp4" type="video/mp4" /></video>
+          <p class="vid-label">Every moment is magic 🌙</p>
+        </div>
+        <div class="vid-card">
+          <video controls preload="metadata"><source src="images/WhatsApp Video 2026-06-04 at 11.04.57 PM.mp4" type="video/mp4" /></video>
+          <p class="vid-label">My happy place 💕</p>
+        </div>
+        <div class="vid-card">
+          <video controls preload="metadata"><source src="images/WhatsApp Video 2026-06-04 at 11.04.57 PM (1).mp4" type="video/mp4" /></video>
+          <p class="vid-label">Nothing compares 🦋</p>
+        </div>
+        <div class="vid-card">
+          <video controls preload="metadata"><source src="images/WhatsApp Video 2026-06-04 at 11.04.58 PM.mp4" type="video/mp4" /></video>
+          <p class="vid-label">You make everything brighter 🌺</p>
+        </div>
+        <div class="vid-card">
+          <video controls preload="metadata"><source src="images/WhatsApp Video 2026-06-04 at 11.04.59 PM.mp4" type="video/mp4" /></video>
+          <p class="vid-label">My forever memory 🌹</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ===== REASONS ===== -->
   <section class="reasons-section">
-    <div class="section-header">
-      <p class="section-sub">endlessly, deeply</p>
-      <h2 class="section-title">Why You Are Perfect 💖</h2>
+    <div class="section-label">
+      <span class="label-tag">why she is everything</span>
     </div>
-    <div class="reasons-grid">
-      <div class="reason-card">
-        <div class="reason-icon">👸</div>
-        <h3>Objectively the Prettiest</h3>
-        <p>I've seen the whole world and I'm telling you — nobody comes close. You are the most beautiful person alive. Period.</p>
+    <h2 class="section-heading">What You Mean to Me 💜</h2>
+    <div class="reasons-list">
+      <div class="reason-row reveal-left">
+        <div class="reason-num">01</div>
+        <div class="reason-body">
+          <h3>The Prettiest — No Contest</h3>
+          <p>I have seen the entire world and I am absolutely certain — nobody compares. You are the most beautiful person to ever exist.</p>
+        </div>
       </div>
-      <div class="reason-card">
-        <div class="reason-icon">🌅</div>
-        <h3>My Every Morning</h3>
-        <p>You are the first thought I wake up to. Every single day begins and ends with you lighting up my mind.</p>
+      <div class="reason-row reveal-right">
+        <div class="reason-num">02</div>
+        <div class="reason-body">
+          <h3>My Every Single Morning</h3>
+          <p>You are the very first thought when I wake up. Every single day. You are my reason to smile before anything else happens.</p>
+        </div>
       </div>
-      <div class="reason-card">
-        <div class="reason-icon">🧠</div>
-        <h3>The Smartest Person I Know</h3>
-        <p>The way your mind works — the depth, the curiosity, the brilliance — it constantly amazes and inspires me.</p>
+      <div class="reason-row reveal-left">
+        <div class="reason-num">03</div>
+        <div class="reason-body">
+          <h3>The Smartest Mind I Know</h3>
+          <p>The depth of your thinking, your curiosity, your brilliance — it constantly leaves me in awe of who you are.</p>
+        </div>
       </div>
-      <div class="reason-card">
-        <div class="reason-icon">😂</div>
-        <h3>My Favorite Laugh</h3>
-        <p>Your laugh is the best sound in the universe. You make every moment lighter just by being in it.</p>
+      <div class="reason-row reveal-right">
+        <div class="reason-num">04</div>
+        <div class="reason-body">
+          <h3>The Best Laugh in the Universe</h3>
+          <p>Your laugh is the most beautiful sound I have ever heard. It makes everything lighter, warmer, and worth it.</p>
+        </div>
       </div>
-      <div class="reason-card">
-        <div class="reason-icon">💪</div>
-        <h3>The Strongest Person</h3>
-        <p>Your strength, your resilience, the way you carry yourself — it inspires me every single day.</p>
+      <div class="reason-row reveal-left">
+        <div class="reason-num">05</div>
+        <div class="reason-body">
+          <h3>The Strongest Person Alive</h3>
+          <p>The way you carry yourself — your resilience, your strength, your grace — it inspires me every single day.</p>
+        </div>
       </div>
-      <div class="reason-card">
-        <div class="reason-icon">🌍</div>
-        <h3>My Whole World</h3>
-        <p>Before you, I had a life. With you, I have a reason — to be better, to love deeper, to live fully.</p>
+      <div class="reason-row reveal-right">
+        <div class="reason-num">06</div>
+        <div class="reason-body">
+          <h3>My Entire World</h3>
+          <p>Before you, I had a life. With you, I have everything. You didn't change my world — you became it.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== CLOSING LETTER ===== -->
+  <!-- ===== CLOSING ===== -->
   <section class="closing-section">
-    <div class="closing-card">
-      <p class="closing-salutation">My dearest Venu,</p>
-      <p class="closing-text">
-        Please hear me when I say this: you are not "okay-looking," you are not "fine," you are not "just pretty."
-        You are <em>extraordinarily, breathtakingly, soul-stirringly beautiful.</em> And I will spend every day of my life
-        making sure you believe it.
+    <div class="closing-bg-text">VENU</div>
+    <div class="closing-inner">
+      <p class="closing-tag">a message that will never expire</p>
+      <h2 class="closing-heading">
+        Venu — You Are the<br />
+        <em>Most Beautiful Thing</em><br />
+        That Has Ever Happened to Me.
+      </h2>
+      <p class="closing-body">
+        Every time you feel insecure — come back here. Read this.
+        Because <strong>Alein</strong> — the person who knows you best,
+        who has seen every side of you — says you are breathtakingly, undeniably,
+        extraordinarily beautiful.
       </p>
-      <p class="closing-text">
-        Every time you doubt yourself, come back here. Look at these pictures. Read these words.
-        And remember that the person who knows you best — <em>me, Alein</em> — thinks you are
-        the most gorgeous human being to ever walk this earth.
+      <p class="closing-body">
+        You made my entire life better just by existing in it.
+        I love you more than any website could ever hold. 🌌
       </p>
-      <p class="closing-text">
-        I love you more than any website could ever express. But I made this one to try. 🌹
-      </p>
-      <p class="closing-signature">
-        Yours completely, always — Alein 💗
-      </p>
+      <div class="closing-signature">Forever yours — Alein 💜</div>
     </div>
   </section>
 
   <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
-    <p>Made with 💗 by <span class="footer-name">Alein</span> for <span class="footer-name">Venu</span></p>
-    <p class="footer-sub">You are the prettiest girl alive. Never forget it. 🌸</p>
+    <p>Built with every piece of my heart by <strong>Alein</strong> for <strong>Venu</strong></p>
+    <p class="footer-sub">You are the prettiest girl alive. Never doubt it. 🌸</p>
   </footer>
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <button class="lightbox-close" onclick="closeLightbox()" id="lightboxCloseBtn">✕</button>
-    <div class="lightbox-inner" onclick="event.stopPropagation()">
-      <img id="lightboxImg" src="" alt="Venu" />
-      <p id="lightboxCaption" class="lightbox-caption"></p>
+    <button class="lbox-close" id="lboxClose" onclick="closeLightbox()">✕</button>
+    <div class="lbox-inner" onclick="event.stopPropagation()">
+      <img id="lboxImg" src="" alt="Venu" />
+      <p id="lboxCaption" class="lbox-caption"></p>
     </div>
   </div>
 
   <script src="script.js"></script>
 </body>
-
 </html>
